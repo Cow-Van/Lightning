@@ -1,9 +1,9 @@
 import java.util.List;
 
 class Bolt {
-  private final float maxXOffset = width / 20;
-  private final float maxYOffset = height / 20;
-  private final float maxLineTicks = 100;
+  private final float maxXOffset = (float) (width / 10 + Math.random() * 25 - 12.5);
+  private final float maxYOffset = (float) (height / 10 + Math.random() * 25 - 12.5);
+  private final float maxLineTicks = (float) (60 + Math.random() * 20 + 10);
   private final float[] lineColor = new float[]{255, 255, 255};
   private final List<float[]> lines = new ArrayList();
   
@@ -12,6 +12,10 @@ class Bolt {
   }
   
   public void update() {
+    if (lines.size() > 0 && lines.get(lines.size() - 1)[4] <= height + 50) {
+      lines.add(new float[]{0, lines.get(lines.size() - 1)[3], lines.get(lines.size() - 1)[4], randX(lines.get(lines.size() - 1)[3]), randY(lines.get(lines.size() - 1)[4])});
+    }
+    
     for (int i = lines.size() - 1; i >= 0; i--) {
       float[] line = lines.get(i);
       if (line[0] > maxLineTicks) {
@@ -22,7 +26,6 @@ class Bolt {
       stroke(lineColor[0], lineColor[1], lineColor[2], lineAlpha(line[0]));
       line(line[1], line[2], line[3], line[4]);
       line[0]++;
-      System.out.println(lineAlpha(line[0]));
     }
   }
   
@@ -31,7 +34,7 @@ class Bolt {
   }
   
   private float randY(float y) {
-    return (float) (Math.random() * maxYOffset - (maxYOffset / 2)) + y;
+    return (float) (Math.random() * maxYOffset) + y;
   }
   
   private float lineAlpha(float tick) {
