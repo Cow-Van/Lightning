@@ -2,7 +2,7 @@ final float[] BACKGROUND = new float[]{0, 0, 0};
 final List<Bolt> bolts = new ArrayList();
 
 void setup() {
-  size(300,300);
+  size(500, 500);
   strokeWeight(10);
 }
 
@@ -15,5 +15,5 @@ void draw() {
 }
 
 void mousePressed() {
-  bolts.add(new Bolt((float) (Math.random() * width), (float) (Math.random() * height)));
+  bolts.add(new Bolt((float) (Math.random() * (width - width / 5) + width / 5), -1));
 }
