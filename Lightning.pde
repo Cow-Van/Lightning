@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ListIterator;
 
 final float[] BACKGROUND = new float[]{0, 0, 0};
 final List<Bolt> bolts = new ArrayList();
@@ -11,8 +12,15 @@ void setup() {
 void draw() {
   background(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2]);
   
-  for (Bolt bolt : bolts) {
-    bolt.update();
+  ListIterator<Bolt> boltsIterator = bolts.listIterator();
+  
+  while (boltsIterator.hasNext()) {
+    Bolt bolt = boltsIterator.next();
+    
+    if (bolt.update()) {
+      bolts.remove(bolt);
+      boltsIterator = bolts.listIterator(boltsIterator.previousIndex());
+    }
   }
 }
 
@@ -22,9 +30,9 @@ void mousePressed() {
 
 
 class Bolt {
-  private final float maxXOffset = (float) (width / 10 + Math.random() * 25 - 12.5);
-  private final float maxYOffset = (float) (height / 10 + Math.random() * 25 - 12.5);
-  private final float maxLineTicks = (float) (60 + Math.random() * 20 + 10);
+  private final float maxXOffset = (float) (width / 8 + Math.random() * 25);
+  private final float maxYOffset = (float) (height / 10 + Math.random() * 25);
+  private final float maxLineTicks = (float) (30 + Math.random() * 20 - 10);
   private final float[] lineColor = new float[]{255, 255, 255};
   private final List<float[]> lines = new ArrayList();
   
@@ -32,7 +40,7 @@ class Bolt {
     lines.add(new float[]{0, x, y, randX(x), randY(y)});
   }
   
-  public void update() {
+  public boolean update() {
     if (lines.size() > 0 && lines.get(lines.size() - 1)[4] <= height + 50) {
       lines.add(new float[]{0, lines.get(lines.size() - 1)[3], lines.get(lines.size() - 1)[4], randX(lines.get(lines.size() - 1)[3]), randY(lines.get(lines.size() - 1)[4])});
     }
@@ -48,6 +56,8 @@ class Bolt {
       line(line[1], line[2], line[3], line[4]);
       line[0]++;
     }
+    
+    return lines.size() == 0;
   }
   
   private float randX(float x) {
