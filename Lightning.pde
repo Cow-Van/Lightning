@@ -15,12 +15,12 @@ void setup() {
 void draw() {
   background(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2]);
   
-  ListIterator<Bolt> boltsIterator = bolts.listIterator();
+  ListIterator<Map> boltsIterator = bolts.listIterator();
   
   while (boltsIterator.hasNext()) {
-    Bolt bolt = boltsIterator.next();
+    Map bolt = boltsIterator.next();
     
-    if (bolt.update()) {
+    if (update(bolt)) {
       bolts.remove(bolt);
       boltsIterator = bolts.listIterator(boltsIterator.previousIndex());
     }
@@ -39,7 +39,7 @@ void mousePressed() {
   Map bolt = new HashMap();
   bolt.put("maxXOffset", maxXOffset);
   bolt.put("maxYOffset", maxYOffset);
-  bolt.put("maxLineTick", randMaxLineTick());
+  bolt.put("maxLineTicks", randMaxLineTick());
   bolt.put("lines", lines);
   
   bolts.add(bolt);
