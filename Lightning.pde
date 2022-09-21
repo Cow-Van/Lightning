@@ -21,6 +21,8 @@ void draw() {
 }
 
 void mousePressed() {
+  fill(255);
+  text("Bar", 300, 100);
   bolts.add(new Bolt((float) (Math.random() * (width - width / 5) + width / 5), -1));
 }
 
