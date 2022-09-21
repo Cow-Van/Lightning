@@ -17,6 +17,8 @@ void draw() {
     fill(255);
     text(bolts.size(), 200 + i * 10, 200 + i * 10);
     bolts.get(i).update();
+    fill(255);
+    text("Bat", 400, 400);
   }
 }
 
