@@ -1,8 +1,5 @@
-import java.util.List;
-import java.util.Map;
-
 final float[] BACKGROUND = new float[]{0, 0, 0};
-final List<Map> bolts = new ArrayList();
+final ArrayList<HashMap> bolts = new ArrayList();
 
 final float[] lineColor = new float[]{255, 255, 255};
 
@@ -25,10 +22,10 @@ void mousePressed() {
   float maxXOffset = randMaxXOffset();
   float maxYOffset = randMaxYOffset();
   
-  List<float[]> lines = new ArrayList();
+  ArrayList<float[]> lines = new ArrayList();
   lines.add(new float[]{0, x, y, randX(maxXOffset, x), randY(maxYOffset, y)});
   
-  Map bolt = new HashMap();
+  HashMap bolt = new HashMap();
   bolt.put("maxXOffset", maxXOffset);
   bolt.put("maxYOffset", maxYOffset);
   bolt.put("maxLineTicks", randMaxLineTick());
@@ -49,11 +46,11 @@ float randMaxLineTick() {
   return (float) (30 + Math.random() * 20 - 10);
 }
 
-boolean update(Map bolt) {
+boolean update(HashMap bolt) {
   float maxXOffset = (float) bolt.get("maxXOffset");
   float maxYOffset = (float) bolt.get("maxYOffset");
   float maxLineTicks = (float) bolt.get("maxLineTicks");
-  List<float[]> lines = (List<float[]>) bolt.get("lines");
+  ArrayList<float[]> lines = (ArrayList<float[]>) bolt.get("lines");
   
   if (lines.size() > 0 && lines.get(lines.size() - 1)[4] <= height + 50) {
     lines.add(new float[]{0, lines.get(lines.size() - 1)[3], lines.get(lines.size() - 1)[4], randX(maxXOffset, lines.get(lines.size() - 1)[3]), randY(maxYOffset, lines.get(lines.size() - 1)[4])});
