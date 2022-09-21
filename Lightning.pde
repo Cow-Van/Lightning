@@ -10,6 +10,8 @@ void setup() {
 
 void draw() {
   background(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2]);
+  fill(255);
+  text("Hello", 100, 100);
   
   for (Bolt bolt : bolts) {
     bolt.update();
