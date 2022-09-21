@@ -41,6 +41,8 @@ class Bolt {
   }
   
   public void update() {
+    fill(255);
+    text("Bing", 400, 100);
     if (lines.size() > 0 && lines.get(lines.size() - 1)[4] <= height + 50) {
       lines.add(new float[]{0, lines.get(lines.size() - 1)[3], lines.get(lines.size() - 1)[4], randX(lines.get(lines.size() - 1)[3]), randY(lines.get(lines.size() - 1)[4])});
     }
