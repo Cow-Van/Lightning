@@ -46,8 +46,12 @@ class Bolt {
     if (lines.size() > 0 && lines.get(lines.size() - 1)[4] <= height + 50) {
       lines.add(new float[]{0, lines.get(lines.size() - 1)[3], lines.get(lines.size() - 1)[4], randX(lines.get(lines.size() - 1)[3]), randY(lines.get(lines.size() - 1)[4])});
     }
+    fill(255);
+    text("Bop", 200, 100);
     
     for (int i = lines.size() - 1; i >= 0; i--) {
+      fill(255);
+      text("E", 300 + i * 10, 300 + i * 10);
       float[] line = lines.get(i);
       if (line[0] > maxLineTicks) {
         lines.remove(line);
