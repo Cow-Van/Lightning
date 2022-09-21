@@ -15,7 +15,7 @@ void draw() {
   
   for (int i = 0; i < bolts.size(); i++) {
     fill(255);
-    text("Foo", 200, 200);
+    text("Foo", 200 + i * 10, 200 + i * 10);
     bolt.update();
   }
 }
