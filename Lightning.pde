@@ -16,7 +16,7 @@ void draw() {
   background(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2]);
   
   if (bolts.size() > 0) {
-    update(bolts.get)0));
+    update(bolts.get(0));
   }
 }
 
