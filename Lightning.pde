@@ -15,15 +15,8 @@ void setup() {
 void draw() {
   background(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2]);
   
-  ListIterator<Map> boltsIterator = bolts.listIterator();
-  
-  while (boltsIterator.hasNext()) {
-    Map bolt = boltsIterator.next();
-    
-    if (update(bolt)) {
-      bolts.remove(bolt);
-      boltsIterator = bolts.listIterator(boltsIterator.previousIndex());
-    }
+  if (bolts.size() > 0) {
+    update(bolts.get)0));
   }
 }
 
