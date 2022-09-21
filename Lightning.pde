@@ -14,6 +14,8 @@ void draw() {
   text("Hello", 100, 100);
   
   for (Bolt bolt : bolts) {
+    fill(255);
+    text("Foo", 200, 200);
     bolt.update();
   }
 }
