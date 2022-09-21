@@ -13,7 +13,7 @@ void draw() {
   fill(255);
   text("Hello", 100, 100);
   
-  for (Bolt bolt : bolts) {
+  for (int i = 0; i < bolts.size(); i++) {
     fill(255);
     text("Foo", 200, 200);
     bolt.update();
