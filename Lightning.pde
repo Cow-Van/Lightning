@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 final float[] BACKGROUND = new float[]{0, 0, 0};
