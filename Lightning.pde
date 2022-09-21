@@ -78,7 +78,7 @@ class Bolt {
   
   private float lineAlpha(float tick) {
     fill(255);
-    text(LINE_A", 200, 400);
+    text("LINE_A", 200, 400);
     return 255 - ((tick / maxLineTicks) * 255);
   }
 }
