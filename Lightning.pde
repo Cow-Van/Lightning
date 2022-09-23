@@ -36,19 +36,19 @@ class Bolt {
     }
     
     for (int i = lines.size() - 1; i >= 0; i--) {
-      float[] line = lines.get(i);
-      if (line[0] > maxLineTicks) {
-        lines.remove(line);
+      float[] lineLines = lines.get(i);
+      if (lineLines[0] > maxLineTicks) {
+        lines.remove(lineLines);
         continue;
       }
       
-      stroke(lineColor[0], lineColor[1], lineColor[2], lineAlpha(line[0]));
+      stroke(lineColor[0], lineColor[1], lineColor[2], lineAlpha(lineLines[0]));
       fill(255);
-      text(line[4], 100 + i * 10, 400 + i * 10);
-      line(line[1], line[2], line[3], line[4]);
+      text(lineLines[4], 100 + i * 10, 400 + i * 10);
+      line(lineLines[1], lineLines[2], lineLines[3], lineLines[4]);
       fill(255);
       text("F", 150 + i * 10, 300 + i * 10);
-      line[0]++;
+      lineLines[0]++;
     }
   }
   
