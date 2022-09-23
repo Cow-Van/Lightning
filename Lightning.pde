@@ -1,5 +1,7 @@
+import java.util.List;
+
 final float[] BACKGROUND = new float[]{0, 0, 0};
-final ArrayList<Bolt> bolts = new ArrayList();
+final List<Bolt> bolts = new ArrayList();
 
 void setup() {
   size(500, 500);
