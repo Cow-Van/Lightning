@@ -63,12 +63,7 @@ class Bolt {
       fill(255);
       text("M", 100 + i * 10, 400 + i * 10);
       stroke(lineColor[0], lineColor[1], lineColor[2], lineAlpha(line[0]));
-      //fill(255);
-      //text(line[1], 100 + i * 10, 300 + i * 10);
-      //text(line[2], 200 + i * 10, 300 + i * 10);
-      //text(line[3], 300 + i * 10, 300 + i * 10);
-      //text(line[4], 400 + i * 10, 300 + i * 10);
-      //text("L", 150 + i * 10, 150 + i * 10);
+      //fill(25?
       line(line[1], line[2], line[3], line[4]);
       line[0]++;
       fill(255);
