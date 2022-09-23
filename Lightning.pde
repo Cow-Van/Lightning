@@ -43,11 +43,7 @@ class Bolt {
       }
       
       stroke(lineColor[0], lineColor[1], lineColor[2], lineAlpha(lineLines[0]));
-      fill(255);
-      text(lineLines[4], 100 + i * 10, 400 + i * 10);
       line(lineLines[1], lineLines[2], lineLines[3], lineLines[4]);
-      fill(255);
-      text("F", 150 + i * 10, 300 + i * 10);
       lineLines[0]++;
     }
   }
