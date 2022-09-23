@@ -1,6 +1,7 @@
 import java.util.List;
 
 final float[] BACKGROUND = new float[]{0, 0, 0};
+final float[] CLOUD = new float[]{105, 105, 105};
 final List<Bolt> bolts = new ArrayList();
 
 void setup() {
@@ -14,10 +15,17 @@ void draw() {
   for (int i = 0; i < bolts.size(); i++) {
     bolts.get(i).update();
   }
+  
+  noStroke();
+  fill(CLOUD[0], CLOUD[1], CLOUD[2]);
+  ellipse(150, 50, 100, 100);
+  ellipse(200, 75, 75, 75);
+  ellipse(250, 80, 90, 90);
+  ellipse(300, 60, 100, 100);
 }
 
 void mousePressed() {
-  bolts.add(new Bolt((float) (Math.random() * (width - width / 5) + width / 5), -1));
+  bolts.add(new Bolt((float) (Math.random() * 300 + 100), -1));
 }
 
 
@@ -25,7 +33,7 @@ class Bolt {
   private final float maxXOffset = (float) (width / 10 + Math.random() * 25 - 12.5);
   private final float maxYOffset = (float) (height / 10 + Math.random() * 25 - 12.5);
   private final float maxLineTicks = (float) (60 + Math.random() * 20 + 10);
-  private final float[] lineColor = new float[]{255, 255, 255};
+  private final float[] lineColor = new float[]{255, 255, 0};
   private final ArrayList<float[]> lines = new ArrayList();
   
   public Bolt(float x, float y) {
