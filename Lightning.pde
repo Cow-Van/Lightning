@@ -19,13 +19,17 @@ void draw() {
   noStroke();
   fill(CLOUD[0], CLOUD[1], CLOUD[2]);
   ellipse(150, 50, 100, 100);
+  ellipse(175, 0, 100, 100);
   ellipse(200, 75, 75, 75);
+  ellipse(225, 0, 100, 100);
   ellipse(250, 80, 90, 90);
+  ellipse(260, 0, 225, 90);
   ellipse(300, 60, 100, 100);
+  ellipse(350, 50, 80, 80);
 }
 
 void mousePressed() {
-  bolts.add(new Bolt((float) (Math.random() * 300 + 100), -1));
+  bolts.add(new Bolt((float) (Math.random() * 225 + 112.5), 50));
 }
 
 
